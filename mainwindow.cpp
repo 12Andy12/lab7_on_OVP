@@ -5,6 +5,8 @@
 #include "ball.h"
 #include "car.h"
 #include <QTimer>
+#include <iostream>
+#include <QDir>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -12,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //std::cout << QDir::currentPath().toStdString();
     //this->resize(600,600);
     this->setFixedSize(620,670);
     QGraphicsScene *scene = new QGraphicsScene;
@@ -28,14 +31,14 @@ MainWindow::MainWindow(QWidget *parent) :
     scene->addRect(0,590,600,10,QPen(Qt::NoPen),QBrush(Qt::darkRed));
     scene->addRect(590,0,10,600,QPen(Qt::NoPen),QBrush(Qt::darkGreen));
     scene->addRect(0,0,10, 600,QPen(Qt::NoPen),QBrush(Qt::darkGreen));
-    QPixmap pixCar("C:\\Users\\Andrey\\source\\repos\\Lab7CarAndBoll\\car.png");
-    car=scene->addPixmap(pixCar.scaledToWidth(300));
+    QPixmap pixCar("../lab7_on_OVP/car.png"); // Если тачка не отображается смените на актуальную папку
+    car = scene->addPixmap(pixCar.scaledToWidth(300));
     car->setPos(130,170);
     car->setFlags(QGraphicsItem::ItemIsMovable);
     car->setZValue(1);
     car->setData(0,"Car");
     car->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
-    QPixmap pixwheel1("C:\\Users\\Andrey\\source\\repos\\Lab7CarAndBoll\\koleso.png");
+    QPixmap pixwheel1("../lab7_on_OVP/koleso.png");
     wheel1=scene->addPixmap(pixwheel1.scaledToWidth(45));
     wheel1->setPos(158,205);
     wheel1->setFlags(QGraphicsItem::ItemIsMovable);
@@ -43,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     wheel1->setData(0,"Car");
     wheel1->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
-    QPixmap pixwheel2("C:\\Users\\Andrey\\source\\repos\\Lab7CarAndBoll\\koleso.png");
+    QPixmap pixwheel2("../lab7_on_OVP/koleso.png");
     wheel2=scene->addPixmap(pixwheel2.scaledToWidth(45));
     wheel2->setPos(340,205);
     wheel2->setFlags(QGraphicsItem::ItemIsMovable);
